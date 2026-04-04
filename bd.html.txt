@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday Iqraa 🎂</title>
+
+<style>
+body {
+    background: linear-gradient(to right, pink, purple);
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+h1 {
+    font-size: 50px;
+    margin-top: 50px;
+}
+
+p {
+    font-size: 22px;
+}
+
+img {
+    width: 250px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 20px;
+    background: white;
+    color: purple;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background: yellow;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>🎉 Happy Birthday Iqraa 🎉</h1>
+
+<p>May Allah bless you with happiness, success and long life 💖</p>
+
+<img src="https://i.imgur.com/6RK6G2x.png">
+
+<br>
+
+<button onclick="showMessage()">Click For Surprise 🎁</button>
+
+<script>
+function showMessage() {
+    alert("Iqraa, you are very special! Stay happy always 💕");
+}
+</script>
+
+</body>
+</html>
