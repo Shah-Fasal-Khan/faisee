@@ -1,66 +1,635 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Happy Birthday Iqraa 🎂</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Iqra!</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
 
-<style>
-body {
-    background: linear-gradient(to right, pink, purple);
-    text-align: center;
-    font-family: Arial, sans-serif;
-    color: white;
-}
+        :root {
+            --pk: #FF69B4;
+            --pk2: #FFB6D9;
+            --pk3: #FF3366;
+            --dk: #4A4A4A;
+            --gold: #FFD700;
+            --purple: #C77DFF;
+            --lavender: #E8DAFF
+        }
 
-h1 {
-    font-size: 50px;
-    margin-top: 50px;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #FFE5F1 0%, #E8DAFF 50%, #FFD1E3 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative
+        }
 
-p {
-    font-size: 22px;
-}
+        .heart-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden
+        }
 
-img {
-    width: 250px;
-    border-radius: 20px;
-    margin-top: 20px;
-}
+        .heart-float {
+            position: absolute;
+            animation: floatUp 12s infinite;
+            opacity: 0
+        }
 
-button {
-    padding: 12px 25px;
-    font-size: 20px;
-    background: white;
-    color: purple;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    margin-top: 20px;
-}
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0
+            }
 
-button:hover {
-    background: yellow;
-}
-</style>
+            10% {
+                opacity: .5
+            }
 
+            90% {
+                opacity: .5
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0
+            }
+        }
+
+        .container {
+            max-width: 620px;
+            width: 100%;
+            position: relative;
+            z-index: 1
+        }
+
+        .card {
+            background: rgba(255, 255, 255, .97);
+            border-radius: 30px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 60px rgba(255, 105, 180, .3);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: cardIn .6s cubic-bezier(.34, 1.56, .64, 1);
+            display: none
+        }
+
+        .card.active {
+            display: block
+        }
+
+        @keyframes cardIn {
+            from {
+                opacity: 0;
+                transform: scale(.8) translateY(30px)
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0)
+            }
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--pk), var(--pk2), var(--purple), var(--pk));
+            border-radius: 30px;
+            z-index: -1;
+            opacity: .3;
+            animation: glow 3s infinite
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                opacity: .3
+            }
+
+            50% {
+                opacity: .6
+            }
+        }
+
+        .gif-container {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--pk);
+            box-shadow: 0 10px 30px rgba(255, 105, 180, .4);
+            animation: pulse 2s ease-in-out infinite
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1)
+            }
+
+            50% {
+                transform: scale(1.05)
+            }
+        }
+
+        .gif-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.3em;
+            color: var(--dk);
+            margin-bottom: 18px;
+            font-weight: 700;
+            line-height: 1.2
+        }
+
+        h1.script {
+            font-family: 'Great Vibes', cursive;
+            font-weight: 400;
+            font-size: 3em
+        }
+
+        h1.italic {
+            font-style: italic
+        }
+
+        .subtitle {
+            font-size: 1.05em;
+            color: #666;
+            margin-bottom: 8px;
+            line-height: 1.8;
+            font-weight: 300;
+            font-style: italic
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 28px
+        }
+
+        .btn {
+            padding: 14px 36px;
+            font-size: 1.1em;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all .3s;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .15)
+        }
+
+        .btn-yes {
+            background: linear-gradient(135deg, var(--pk3), var(--pk));
+            color: #fff
+        }
+
+        .btn-yes:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 51, 102, .4)
+        }
+
+        .btn-back {
+            background: linear-gradient(135deg, var(--pk), var(--pk2));
+            color: #fff;
+            padding: 12px 32px;
+            margin-top: 16px
+        }
+
+        .btn-back:hover {
+            transform: translateY(-3px)
+        }
+
+        .back-arrow {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            width: 38px;
+            height: 38px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+            transition: all .3s;
+            font-size: 18px;
+            color: var(--pk);
+            z-index: 10
+        }
+
+        .back-arrow:hover {
+            background: var(--lavender);
+            transform: scale(1.1)
+        }
+
+        .back-arrow.hidden {
+            display: none
+        }
+
+        .gifts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 26px 0
+        }
+
+        .gift-item {
+            background: #fff;
+            border-radius: 20px;
+            padding: 24px;
+            cursor: pointer;
+            transition: all .3s;
+            border: 3px solid transparent;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .08)
+        }
+
+        .gift-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--pk);
+            box-shadow: 0 10px 25px rgba(255, 105, 180, .3)
+        }
+
+        .gift-icon {
+            font-size: 3em;
+            margin-bottom: 10px
+        }
+
+        .gift-label {
+            font-size: .95em;
+            color: var(--dk);
+            font-weight: 600
+        }
+
+        .letter-box {
+            background: #FFFEF2;
+            padding: 28px;
+            border-radius: 14px;
+            box-shadow: inset 0 0 18px rgba(0, 0, 0, .04);
+            margin: 18px 0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1em;
+            line-height: 1.9;
+            color: var(--dk);
+            text-align: left;
+            border: 1px solid #E8E8E8;
+            font-weight: 300;
+            font-style: italic
+        }
+
+        #flowerCanvas {
+            width: 100%;
+            height: 320px;
+            display: block;
+            margin: 10px 0;
+            border-radius: 16px
+        }
+
+        .final-msg {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1em;
+            line-height: 1.9;
+            color: var(--dk);
+            margin-top: 18px;
+            font-weight: 300;
+            font-style: italic
+        }
+
+        .birthday-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), #FFA500);
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: .9em;
+            font-weight: 600;
+            margin-bottom: 14px;
+            letter-spacing: 1px
+        }
+
+        @media(max-width:480px) {
+            .card {
+                padding: 36px 20px
+            }
+
+            h1 {
+                font-size: 1.7em
+            }
+
+            h1.script {
+                font-size: 2.4em
+            }
+
+            .gifts-grid {
+                gap: 12px
+            }
+
+            .gift-icon {
+                font-size: 2.4em
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <div class="heart-bg" id="heartBg"></div>
+    <div class="container">
 
-<h1>🎉 Happy Birthday Iqraa 🎉</h1>
+        <!-- Card 1 -->
+        <div class="card active" id="card1">
+            <div class="back-arrow hidden">←</div>
+            <div class="gif-container"><img src="images1.jfif"
+                    alt="Birthday cake"></div>
+            <div class="birthday-badge">🎂 HAPPY BIRTHDAY 🎂</div>
+            <h1 class="italic">Happy Birthday, Iqra</h1>
+            <p class="subtitle">I made something for you. Will you open it?</p>
+            <div class="btn-row">
+                <button class="btn btn-yes" id="yesBtn1">Of course 🎀</button>
+                <button class="btn" id="noBtn1"
+                    style="background:linear-gradient(135deg,#a78bfa,#7c3aed);color:#fff">Maybe not</button>
+            </div>
+        </div>
 
-<p>May Allah bless you with happiness, success and long life 💖</p>
+        <!-- Card 2 -->
+        <div class="card" id="card2">
+            <div class="back-arrow" onclick="goBack(2)">←</div>
+            <div class="gif-container"><img src="images2.jfif"  alt="Happy">
+            </div>
+            <h1>I am glad you're here ❤️</h1>
+            <p class="subtitle">There is something I wanted to say to you on this special day.</p>
+            <div class="btn-row"><button class="btn btn-yes" id="yesBtn2">Continue 🎊</button></div>
+        </div>
 
-<img src="https://i.imgur.com/6RK6G2x.png">
+        <!-- Card 3 -->
+        <div class="card" id="card3">
+            <div class="back-arrow" onclick="goBack(3)">←</div>
+            <div class="gif-container"><img src="images3.jfif" alt="Surprise">
+            </div>
+            <h1 class="script">A Little Something 🎁</h1>
+            <p class="subtitle">I prepared this with a lot of care, just for you.</p>
+            <div class="btn-row"><button class="btn btn-yes" id="yesBtn3">Show me 🎀</button></div>
+        </div>
 
-<br>
+        <!-- Card 4 -->
+        <div class="card" id="card4">
+            <div class="back-arrow" onclick="goBack(4)">←</div>
+            <div class="gif-container"><img src="images4.jfif"
+                    alt="Birthday"></div>
+            <h1>Happy Birthday, Iqra 💜🎂</h1>
+            <p class="subtitle">You are one of the best friends I have ever had. Today is entirely yours.</p>
+            <div class="btn-row"><button class="btn btn-yes" id="seeGifts">See Your Gifts 🎁</button></div>
+        </div>
 
-<button onclick="showMessage()">Click For Surprise 🎁</button>
+        <!-- Card 5: Gifts -->
+        <div class="card" id="card5">
+            <div class="back-arrow" onclick="goBack(5)">←</div>
+            <h1>For You 🎀</h1>
+            <p class="subtitle">Two gifts, made with love 💜</p>
+            <div class="gifts-grid">
+                <div class="gift-item" data-gift="letter">
+                    <div class="gift-icon">✉️</div>
+                    <div class="gift-label">A Letter</div>
+                </div>
+                <div class="gift-item" data-gift="flowers">
+                    <div class="gift-icon">🌸</div>
+                    <div class="gift-label">Flower Garden</div>
+                </div>
+            </div>
+        </div>
 
-<script>
-function showMessage() {
-    alert("Iqraa, you are very special! Stay happy always 💕");
-}
-</script>
+        <!-- Card 6: Letter -->
+        <div class="card" id="card6">
+            <div class="back-arrow" onclick="goBack(6)">←</div>
+            <h1>A Letter For You 🥺</h1>
+            <div class="letter-box"><span id="typedLetter"></span></div>
+            <button class="btn btn-back" onclick="showCard('card5')">Back to Gifts</button>
+        </div>
 
+        <!-- Card 7: Flower Garden -->
+        <div class="card" id="card7">
+            <div class="back-arrow" onclick="goBack(7)">←</div>
+            <h1 class="script">A Garden For You 🌸</h1>
+            <p class="subtitle">Every flower here is a wish blooming endlessly for you ✨</p>
+            <canvas id="flowerCanvas"></canvas>
+            <button class="btn btn-back" onclick="showCard('card5')">Back to Gifts</button>
+        </div>
+
+        <!-- Card 8: Final -->
+        <div class="card" id="card8">
+            <div class="back-arrow" onclick="goBack(8)">←</div>
+            <div class="gif-container"><img src="images5.jfif" alt="Love">
+            </div>
+            <h1 class="italic">Always, always you 💙❤️</h1>
+            <p class="final-msg">Iqra, you are one of the best friends I have ever gotten in my life. Your presence,
+                your kindness, and your sincerity mean more to me than words can carry. I am grateful every day that our
+                paths crossed. On your birthday, I hope you feel how much you are valued and loved. Here is to you —
+                today and always.<br><br>— Faisal 💜</p>
+            <button class="btn btn-back" onclick="showCard('card5')">Back to Gifts</button>
+        </div>
+
+    </div>
+    <script>
+        function createFloatingHearts() {
+            const bg = document.getElementById('heartBg');
+            const h = ['💜', '🎂', '✨', '🎀', '💖', '🌸', '🎉', '💝'];
+            for (let i = 0; i < 18; i++) {
+                const el = document.createElement('div');
+                el.className = 'heart-float';
+                el.textContent = h[Math.floor(Math.random() * h.length)];
+                el.style.left = Math.random() * 100 + '%';
+                el.style.animationDelay = Math.random() * 12 + 's';
+                el.style.fontSize = (Math.random() * 16 + 12) + 'px';
+                bg.appendChild(el);
+            }
+        }
+        createFloatingHearts();
+
+        function showCard(id) {
+            document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+        function goBack(n) {
+            const map = { 2: 'card1', 3: 'card2', 4: 'card3', 5: 'card4', 6: 'card5', 7: 'card5', 8: 'card5' };
+            if (map[n]) showCard(map[n]);
+        }
+
+        let yesScale = 1;
+        const yBtn1 = document.getElementById('yesBtn1');
+        const nBtn1 = document.getElementById('noBtn1');
+        nBtn1.addEventListener('click', () => {
+            yesScale += 0.3;
+            yBtn1.style.transform = `scale(${yesScale})`;
+            nBtn1.style.position = 'fixed';
+            nBtn1.style.left = Math.random() * (window.innerWidth - 120) + 'px';
+            nBtn1.style.top = Math.random() * (window.innerHeight - 60) + 'px';
+        });
+        yBtn1.addEventListener('click', () => { confetti(); showCard('card2') });
+        document.getElementById('yesBtn2').addEventListener('click', () => { confetti(); showCard('card3') });
+        document.getElementById('yesBtn3').addEventListener('click', () => { confetti(); showCard('card4') });
+        document.getElementById('seeGifts').addEventListener('click', () => showCard('card5'));
+
+        document.querySelectorAll('#card5 .gift-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const g = item.dataset.gift;
+                if (g === 'letter') { showCard('card6'); startLetter() }
+                else if (g === 'flowers') { showCard('card7'); initFlowers() }
+            });
+        });
+
+        let letterDone = false;
+        function startLetter() {
+            if (letterDone) return;
+            letterDone = true;
+            const el = document.getElementById('typedLetter');
+            const text = `Dear Iqra,\n\nHappy Birthday.\n\nYou are one of the best friends I have ever gotten in my life — and I want you to know that, not just today, but always.\n\nThere is a kind of friendship that is rare. The kind where you feel completely yourself, where you do not have to explain yourself, where someone just gets it. That is what you are to me.\n\nYour warmth, the way you carry yourself, the way you make people around you feel — it is something truly special. I am grateful for every moment, every conversation, every memory we have shared.\n\nOn your birthday, I hope the day gives back even a fraction of the joy you bring to others.\n\nWith love and sincerity,\nFaisal 💜`;
+            let i = 0; el.textContent = '';
+            const iv = setInterval(() => { if (i < text.length) { el.textContent += text[i++] } else clearInterval(iv) }, 18);
+        }
+
+        function confetti() {
+            const cols = ['#FF69B4', '#FFB6D9', '#C77DFF', '#FF3366', '#FFD700'];
+            if (!document.getElementById('confStyle')) {
+                const s = document.createElement('style'); s.id = 'confStyle';
+                s.textContent = '@keyframes confFall{to{transform:translateY(110vh) rotate(360deg);opacity:0}}';
+                document.head.appendChild(s);
+            }
+            for (let i = 0; i < 40; i++) {
+                const el = document.createElement('div');
+                el.style.cssText = `position:fixed;width:8px;height:8px;background:${cols[~~(Math.random() * cols.length)]};left:${Math.random() * 100}%;top:-10px;border-radius:50%;animation:confFall 2s linear forwards;animation-delay:${Math.random() * .5}s;z-index:9999`;
+                document.body.appendChild(el); setTimeout(() => el.remove(), 2500);
+            }
+        }
+
+        const canvas = document.getElementById('flowerCanvas');
+        const ctx = canvas.getContext('2d');
+        let flowers = [];
+        let gardenInit = false;
+
+        function initFlowers() {
+            if (gardenInit) return;
+            gardenInit = true;
+            canvas.width = canvas.offsetWidth || 560;
+            canvas.height = 320;
+            const W = canvas.width;
+            const types = [
+                { petals: 6, pColor: '#FF69B4', center: '#FFD700', size: 22 },
+                { petals: 8, pColor: '#FF3366', center: '#FFD700', size: 18 },
+                { petals: 6, pColor: '#FFFFFF', center: '#FFD700', size: 20 },
+                { petals: 5, pColor: '#C77DFF', center: '#FFE44D', size: 20 },
+                { petals: 7, pColor: '#FF85A1', center: '#FFD700', size: 16 },
+            ];
+            for (let i = 0; i < 14; i++) {
+                const t = types[i % types.length];
+                flowers.push({
+                    x: 40 + i * (W - 80) / 13 + Math.random() * 10 - 5,
+                    groundY: 290, stemH: 0, maxStemH: 90 + Math.random() * 60,
+                    petals: t.petals, pColor: t.pColor, center: t.center,
+                    size: t.size + Math.random() * 4 - 2, bloomScale: 0,
+                    swaySpeed: 0.015 + Math.random() * 0.02,
+                    swayPhase: Math.random() * Math.PI * 2,
+                    startTime: performance.now() + i * 130,
+                    leafSide: Math.random() > .5 ? 1 : -1,
+                });
+            }
+            requestAnimationFrame(drawGarden);
+        }
+
+        function drawGarden(now) {
+            const W = canvas.width, H = canvas.height;
+            ctx.clearRect(0, 0, W, H);
+            const sky = ctx.createLinearGradient(0, 0, 0, H - 50);
+            sky.addColorStop(0, '#2d0a1f'); sky.addColorStop(1, '#1a0010');
+            ctx.fillStyle = sky; ctx.fillRect(0, 0, W, H - 50);
+            ctx.fillStyle = '#1a4a0a'; ctx.fillRect(0, H - 55, W, 55);
+            ctx.fillStyle = '#236c0e'; ctx.fillRect(0, H - 60, W, 10);
+
+            flowers.forEach(f => {
+                if (now < f.startTime) return;
+                const progress = Math.min(1, (now - f.startTime) / 1200);
+                f.stemH = f.maxStemH * easeOut(progress);
+                f.bloomScale = progress > 0.65 ? Math.min(1, (progress - 0.65) / 0.35) : 0;
+                const sway = Math.sin(now * 0.001 * f.swaySpeed * Math.PI * 2 + f.swayPhase) * 0.06;
+                const tipX = f.x + sway * f.stemH;
+                const tipY = f.groundY - f.stemH;
+
+                ctx.beginPath(); ctx.moveTo(f.x, f.groundY);
+                ctx.quadraticCurveTo(f.x + sway * f.stemH * .5, f.groundY - f.stemH * .5, tipX, tipY);
+                ctx.strokeStyle = '#2d7a1a'; ctx.lineWidth = 3; ctx.stroke();
+
+                if (f.stemH > 30) {
+                    const lx = f.x + f.leafSide * 8 + sway * f.stemH * .3;
+                    const ly = f.groundY - f.stemH * .45;
+                    ctx.save(); ctx.translate(lx, ly); ctx.rotate(f.leafSide * 0.5 + sway * .3);
+                    ctx.beginPath(); ctx.ellipse(0, 0, 14, 7, 0, 0, Math.PI * 2);
+                    ctx.fillStyle = '#3a9a20'; ctx.fill(); ctx.restore();
+                }
+
+                if (f.bloomScale > 0) {
+                    ctx.save(); ctx.translate(tipX, tipY); ctx.scale(f.bloomScale, f.bloomScale);
+                    for (let p = 0; p < f.petals; p++) {
+                        const angle = (Math.PI * 2 / f.petals) * p + sway * 0.3;
+                        ctx.save(); ctx.rotate(angle);
+                        ctx.beginPath(); ctx.ellipse(0, -f.size, f.size * .55, f.size, 0, 0, Math.PI * 2);
+                        ctx.fillStyle = f.pColor; ctx.globalAlpha = 0.93; ctx.fill(); ctx.restore();
+                    }
+                    ctx.globalAlpha = 1;
+                    ctx.beginPath(); ctx.arc(0, 0, f.size * .45, 0, Math.PI * 2);
+                    ctx.fillStyle = f.center; ctx.fill();
+                    ctx.fillStyle = 'rgba(0,0,0,.12)'; ctx.beginPath(); ctx.arc(0, 0, f.size * .22, 0, Math.PI * 2); ctx.fill();
+                    ctx.restore();
+                }
+            });
+
+            ctx.fillStyle = 'rgba(255,182,217,.85)';
+            ctx.font = "italic 14px 'Playfair Display',serif";
+            ctx.textAlign = 'center';
+            ctx.fillText('Every petal, a wish blooming endlessly for you 🌸', W / 2, H - 12);
+            requestAnimationFrame(drawGarden);
+        }
+
+        function easeOut(t) { return 1 - Math.pow(1 - t, 3) }
+
+        window.addEventListener('resize', () => {
+            if (gardenInit) { canvas.width = canvas.offsetWidth || 560; canvas.height = 320 }
+        });
+    </script>
 </body>
+
 </html>
